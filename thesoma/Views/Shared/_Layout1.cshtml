@@ -1,0 +1,204 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET MVC Application</title>
+    <link rel="stylesheet" type="text/css" href="~/css/style.css" />
+    @RenderSection("styles", required: false)
+    <style>
+        .link-selection {
+            display: none;
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            padding-left: 20px;
+        }
+
+        .link-selection li a {
+            color: #fff;
+            text-decoration: none;
+        }
+
+        .link-selection li a:hover {
+            text-decoration: underline;
+        }
+
+        .main-menu button {
+            background: none;
+            border: none;
+            color: #fff;
+            text-align: left;
+            width: 100%;
+            padding: 10px 15px;
+            font-size: 16px;
+            display: flex;
+            align-items: center;
+        }
+
+        .main-menu button i {
+            margin-right: 10px;
+            flex-shrink: 0;
+        }
+
+        .main-menu button:hover {
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .main-menu .nav-text {
+            flex: 1;
+        }
+
+        .main-menu ul {
+            padding: 0;
+        }
+
+        .main-menu li {
+            list-style: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="area"></div>
+    <nav class="main-menu">
+        <ul>
+            <li>
+                <button onclick="toggleLinks('dashboard-links')">
+                    <i class="fa fa-home fa-2x"></i>
+                    <span class="nav-text">
+                        Community Dashboard
+                    </span>
+                </button>
+                <ul id="dashboard-links" class="link-selection">
+                    <li><a href="https://jbfarrow.com/link1">Link 1</a></li>
+                    <li><a href="https://jbfarrow.com/link2">Link 2</a></li>
+                </ul>
+            </li>
+            <li class="has-subnav">
+                <button onclick="toggleLinks('surveyors-links')">
+                    <i class="fa fa-globe fa-2x"></i>
+                    <span class="nav-text">
+                        Global Surveyors
+                    </span>
+                </button>
+                <ul id="surveyors-links" class="link-selection">
+                    <li><a href="https://jbfarrow.com/link3">Link 3</a></li>
+                    <li><a href="https://jbfarrow.com/link4">Link 4</a></li>
+                </ul>
+            </li>
+            <li class="has-subnav">
+                <button onclick="toggleLinks('forums-links')">
+                    <i class="fa fa-comments fa-2x"></i>
+                    <span class="nav-text">
+                        Group Hub Forums
+                    </span>
+                </button>
+                <ul id="forums-links" class="link-selection">
+                    <li><a href="https://jbfarrow.com/link5">Link 5</a></li>
+                    <li><a href="https://jbfarrow.com/link6">Link 6</a></li>
+                </ul>
+            </li>
+            <li class="has-subnav">
+                <button onclick="toggleLinks('photos-links')">
+                    <i class="fa fa-camera-retro fa-2x"></i>
+                    <span class="nav-text">
+                        Survey Photos
+                    </span>
+                </button>
+                <ul id="photos-links" class="link-selection">
+                    <li><a href="https://jbfarrow.com/link7">Link 7</a></li>
+                    <li><a href="https://jbfarrow.com/link8">Link 8</a></li>
+                </ul>
+            </li>
+            <li>
+                <button onclick="toggleLinks('tutorials-links')">
+                    <i class="fa fa-film fa-2x"></i>
+                    <span class="nav-text">
+                        Surveying Tutorials
+                    </span>
+                </button>
+                <ul id="tutorials-links" class="link-selection">
+                    <li><a href="https://jbfarrow.com/link9">Link 9</a></li>
+                    <li><a href="https://jbfarrow.com/link10">Link 10</a></li>
+                </ul>
+            </li>
+            <li>
+                <button onclick="toggleLinks('jobs-links')">
+                    <i class="fa fa-book fa-2x"></i>
+                    <span class="nav-text">
+                        Surveying Jobs
+                    </span>
+                </button>
+                <ul id="jobs-links" class="link-selection">
+                    <li><a href="https://jbfarrow.com/link11">Link 11</a></li>
+                    <li><a href="https://jbfarrow.com/link12">Link 12</a></li>
+                </ul>
+            </li>
+            <li>
+                <button onclick="toggleLinks('resources-links')">
+                    <i class="fa fa-cogs fa-2x"></i>
+                    <span class="nav-text">
+                        Tools & Resources
+                    </span>
+                </button>
+                <ul id="resources-links" class="link-selection">
+                    <li><a href="https://jbfarrow.com/link13">Link 13</a></li>
+                    <li><a href="https://jbfarrow.com/link14">Link 14</a></li>
+                </ul>
+            </li>
+            <li>
+                <button onclick="toggleLinks('map-links')">
+                    <i class="fa fa-map-marker fa-2x"></i>
+                    <span class="nav-text">
+                        Member Map
+                    </span>
+                </button>
+                <ul id="map-links" class="link-selection">
+                    <li><a href="https://jbfarrow.com/link15">Link 15</a></li>
+                    <li><a href="https://jbfarrow.com/link16">Link 16</a></li>
+                </ul>
+            </li>
+            <li>
+                <button onclick="toggleLinks('documentation-links')">
+                    <i class="fa fa-info fa-2x"></i>
+                    <span class="nav-text">
+                        Documentation
+                    </span>
+                </button>
+                <ul id="documentation-links" class="link-selection">
+                    <li><a href="https://jbfarrow.com/link17">Link 17</a></li>
+                    <li><a href="https://jbfarrow.com/link18">Link 18</a></li>
+                </ul>
+            </li>
+        </ul>
+
+        <ul class="logout">
+            <li>
+                <button onclick="logout()">
+                    <i class="fa fa-power-off fa-2x"></i>
+                    <span class="nav-text">
+                        Logout
+                    </span>
+                </button>
+            </li>
+        </ul>
+    </nav>
+
+    <script>
+        function toggleLinks(id) {
+            var links = document.getElementById(id);
+            if (links.style.display === "none" || links.style.display === "") {
+                links.style.display = "block";
+            } else {
+                links.style.display = "none";
+            }
+        }
+
+        function logout() {
+            // Add your logout functionality here
+            alert("Logging out...");
+        }
+    </script>
+</body>
+</html>
