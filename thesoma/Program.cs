@@ -4,6 +4,9 @@ using thesoma.Data;
 var builder = WebApplication.CreateBuilder(args);
 var connectionString = builder.Configuration.GetConnectionString("thesomaContextConnection") ?? throw new InvalidOperationException("Connection string 'thesomaContextConnection' not found.");
 
+builder.Services.AddDbContext<thesomaContext>(options =>
+    options.UseSqlServer(connectionString));
+
 builder.Services.AddDbContext<thesomaContext>(options => options.UseSqlServer(connectionString));
 
 builder.Services.AddDefaultIdentity<thesoma.Areas.Identity.Data.thesomaUser>(options => options.SignIn.RequireConfirmedAccount = true).AddEntityFrameworkStores<thesomaContext>();
@@ -17,6 +20,7 @@ var app = builder.Build();
 if (!app.Environment.IsDevelopment())
 {
     app.UseExceptionHandler("/Home/Error");
+    app.UseHsts();
 }
 app.UseStaticFiles();
 
